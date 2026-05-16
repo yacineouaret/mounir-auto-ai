@@ -60,6 +60,13 @@ export function AppShell() {
               <span className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-primary" />
             </Link>
             <Link
+              to="/admin"
+              className="hidden items-center gap-1.5 rounded-xl border border-primary/30 bg-primary/10 px-2.5 py-1.5 text-xs font-medium text-primary-glow hover:bg-primary/20 sm:inline-flex"
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              Admin
+            </Link>
+            <Link
               to="/profile"
               className="inline-flex items-center gap-2 rounded-xl border border-border bg-secondary px-2 py-1.5 text-sm hover:border-primary/40"
             >
