@@ -93,12 +93,16 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 import { AppShell } from "@/components/AppShell";
+import { AdminShell } from "@/components/AdminShell";
+import { useRouterState } from "@tanstack/react-router";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  const isAdmin = path === "/admin" || path.startsWith("/admin/");
   return (
     <QueryClientProvider client={queryClient}>
-      <AppShell />
+      {isAdmin ? <AdminShell /> : <AppShell />}
     </QueryClientProvider>
   );
 }
