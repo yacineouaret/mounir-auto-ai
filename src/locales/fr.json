@@ -1,0 +1,99 @@
+{
+  "common": {
+    "home": "Accueil",
+    "cars": "Voitures",
+    "orders": "Commandes",
+    "alerts": "Alertes",
+    "profile": "Profil",
+    "search": "Rechercher",
+    "searchPlaceholder": "Rechercher Toyota, BMW, Hyundai...",
+    "askAI": "Demander à l'assistant IA",
+    "reserve": "Réserver cette voiture",
+    "viewDetails": "Voir les détails",
+    "back": "Retour",
+    "total": "Estimation totale",
+    "eta": "Arrivée prévue",
+    "status": "Statut",
+    "subtitle": "Marché d'importation",
+    "userName": "Mounir",
+    "filters": "Filtres",
+    "maxPrice": "Prix max",
+    "brand": "Marque",
+    "fuelType": "Type de carburant",
+    "availability": "Disponibilité",
+    "resetFilters": "Réinitialiser les filtres",
+    "allCars": "Toutes les voitures",
+    "resultsFound": "{{count}} sur {{total}} voitures correspondent à vos filtres",
+    "noResults": "Aucune voiture ne correspond à ces filtres. Essayez de les ajuster ou demandez des recommandations à l'IA.",
+    "all": "Tout",
+    "carStatus": {
+      "available": "Disponible",
+      "transit": "En transit",
+      "customs": "Aux douanes",
+      "delayed": "Retardé"
+    },
+    "petrol": "Essence",
+    "diesel": "Diesel",
+    "hybrid": "Hybride",
+    "electric": "Électrique"
+  },
+  "home": {
+    "heroTitle": "Trouvez votre prochaine voiture importée instantanément",
+    "heroSubtitle": "Voitures importées de Chine avec disponibilité en temps réel, prix transparents et un assistant IA qui remplace les appels téléphoniques.",
+    "liveAvailability": "Disponibilité en direct · 82 voitures en stock",
+    "featuredCars": "Voitures en vedette",
+    "featuredSubtitle": "Importations sélectionnées mises à jour quotidiennement",
+    "seeAll": "Tout voir",
+    "browseCategory": "Parcourir par catégorie",
+    "aiRecommendations": "Recommandations IA",
+    "aiSubtitle": "Choix intelligents basés sur votre budget et vos préférences"
+  },
+  "tracking": {
+    "title": "Vos commandes",
+    "subtitle": "Suivi en direct de la Chine à votre porte",
+    "totalPrice": "Prix Total",
+    "steps": {
+      "ordered": "Commandé",
+      "paid": "Payé / Réservé",
+      "warehouse": "Entrepôt Chine",
+      "shipped": "Expédié",
+      "customs": "Dédouanement",
+      "arrived": "Arrivé en Algérie"
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "subtitle": "Mises à jour sur vos réservations, expéditions et prix"
+  },
+  "profile": {
+    "tabs": {
+      "saved": "Enregistré",
+      "reservations": "Réservations",
+      "history": "Historique",
+      "preferences": "Préférences"
+    },
+    "stats": {
+      "saved": "Enregistré",
+      "reservations": "Réservations",
+      "delivered": "Livré"
+    },
+    "savedCars": "Voitures enregistrées",
+    "preferencesTitle": "Préférences",
+    "preferencesSubtitle": "Utilisé par l'IA pour personnaliser les recommandations",
+    "budgetRange": "Gamme de budget",
+    "preferredBrands": "Marques préférées",
+    "fuelPreference": "Préférence de carburant",
+    "bodyType": "Type de carrosserie"
+  },
+  "aiChat": {
+    "welcome": "Salut Mounir 👋 Je suis votre assistant IA. Je peux vous recommander des voitures pour votre budget, expliquer les frais d'importation et suivre vos commandes. Que cherchez-vous ?",
+    "subtitle": "Toujours disponible · Répond instantanément",
+    "placeholder": "Posez n'importe quelle question sur les voitures, les prix, l'expédition…",
+    "suggestions": {
+      "suvs": "Meilleurs SUVs à moins de 500M",
+      "reliable": "Voitures les plus fiables ce mois-ci",
+      "track": "Suivre ma commande BMW",
+      "customs": "Comment fonctionnent les frais de douane ?"
+    }
+  }
+}

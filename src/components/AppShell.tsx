@@ -1,18 +1,30 @@
 import { Link, Outlet, useRouterState } from "@tanstack/react-router";
-import { Bell, Car, Compass, Home, Package, Sparkles, User } from "lucide-react";
+import { Bell, Car, Compass, Globe, Home, Package, Sparkles, User } from "lucide-react";
 import { AIChat } from "./AIChat";
+import { useTranslation } from "react-i18next";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const nav = [
-  { to: "/", label: "Home", icon: Home },
-  { to: "/cars", label: "Cars", icon: Car },
-  { to: "/orders", label: "Orders", icon: Package },
-  { to: "/notifications", label: "Alerts", icon: Bell },
-  { to: "/profile", label: "Profile", icon: User },
+  { to: "/", labelKey: "common.home", icon: Home },
+  { to: "/cars", labelKey: "common.cars", icon: Car },
+  { to: "/orders", labelKey: "common.orders", icon: Package },
+  { to: "/notifications", labelKey: "common.alerts", icon: Bell },
+  { to: "/profile", labelKey: "common.profile", icon: User },
 ] as const;
 
 export function AppShell() {
+  const { t, i18n } = useTranslation();
   const path = useRouterState({ select: (s) => s.location.pathname });
   const isActive = (to: string) => (to === "/" ? path === "/" : path.startsWith(to));
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <div className="min-h-screen bg-background bg-grid">
@@ -23,9 +35,9 @@ export function AppShell() {
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary glow-primary">
               <Compass className="h-4.5 w-4.5 text-primary-foreground" />
             </div>
-            <div className="leading-tight">
+            <div className="leading-tight rtl:text-right">
               <p className="text-sm font-semibold tracking-tight text-foreground">Mounir Cars</p>
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Import marketplace</p>
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{t("common.subtitle")}</p>
             </div>
           </Link>
 
@@ -44,13 +56,35 @@ export function AppShell() {
                   }`}
                 >
                   <Icon className="h-4 w-4" />
-                  {n.label}
+                  {t(n.labelKey)}
                 </Link>
               );
             })}
           </nav>
 
           <div className="flex items-center gap-2">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  aria-label="Change language"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-secondary text-foreground transition-colors hover:border-primary/40"
+                >
+                  <Globe className="h-4 w-4" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-32 rounded-xl border-border bg-card">
+                <DropdownMenuItem onClick={() => changeLanguage("en")} className="rounded-lg">
+                  English
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => changeLanguage("fr")} className="rounded-lg">
+                  Français
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => changeLanguage("ar")} className="rounded-lg text-right">
+                  العربية
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Link
               to="/notifications"
               aria-label="Notifications"
@@ -61,12 +95,12 @@ export function AppShell() {
             </Link>
             <Link
               to="/profile"
-              className="inline-flex items-center gap-2 rounded-xl border border-border bg-secondary px-2 py-1.5 text-sm hover:border-primary/40"
+              className="inline-flex items-center gap-2 rounded-xl border border-border bg-secondary px-2 py-1.5 text-sm hover:border-primary/40 rtl:flex-row-reverse"
             >
               <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-primary text-[10px] font-bold text-primary-foreground">
                 M
               </div>
-              <span className="hidden text-sm sm:inline">Mounir</span>
+              <span className="hidden text-sm sm:inline">{t("common.userName")}</span>
             </Link>
           </div>
         </div>
@@ -91,7 +125,7 @@ export function AppShell() {
                 }`}
               >
                 <Icon className="h-5 w-5" />
-                {n.label}
+                {t(n.labelKey)}
               </Link>
             );
           })}
@@ -104,14 +138,15 @@ export function AppShell() {
 }
 
 // Floating AI shortcut for marketing — used inside hero
-export function AIShortcut({ label = "Ask AI Assistant" }: { label?: string }) {
+export function AIShortcut({ labelKey = "common.askAI" }: { labelKey?: string }) {
+  const { t } = useTranslation();
   return (
     <button
       type="button"
       className="inline-flex items-center gap-2 rounded-2xl border border-primary/40 bg-primary/10 px-4 py-2.5 text-sm font-medium text-primary-glow backdrop-blur transition-all hover:bg-primary/20 hover:glow-primary"
     >
       <Sparkles className="h-4 w-4" />
-      {label}
+      {t(labelKey)}
     </button>
   );
 }

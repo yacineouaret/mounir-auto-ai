@@ -1,0 +1,99 @@
+{
+  "common": {
+    "home": "Home",
+    "cars": "Cars",
+    "orders": "Orders",
+    "alerts": "Alerts",
+    "profile": "Profile",
+    "search": "Search",
+    "searchPlaceholder": "Search for Toyota, BMW, Hyundai...",
+    "askAI": "Ask AI Assistant",
+    "reserve": "Reserve this car",
+    "viewDetails": "View Details",
+    "back": "Back",
+    "total": "Total estimate",
+    "eta": "ETA",
+    "status": "Status",
+    "subtitle": "Import marketplace",
+    "userName": "Mounir",
+    "filters": "Filters",
+    "maxPrice": "Max price",
+    "brand": "Brand",
+    "fuelType": "Fuel type",
+    "availability": "Availability",
+    "resetFilters": "Reset filters",
+    "allCars": "All cars",
+    "resultsFound": "{{count}} of {{total}} cars match your filters",
+    "noResults": "No cars match these filters. Try adjusting them or ask AI for recommendations.",
+    "all": "All",
+    "carStatus": {
+      "available": "Available",
+      "transit": "In transit",
+      "customs": "At customs",
+      "delayed": "Delayed"
+    },
+    "petrol": "Petrol",
+    "diesel": "Diesel",
+    "hybrid": "Hybrid",
+    "electric": "Electric"
+  },
+  "home": {
+    "heroTitle": "Find your next imported car instantly",
+    "heroSubtitle": "Cars imported from China with live availability, transparent pricing, and an AI assistant that replaces phone calls.",
+    "liveAvailability": "Live availability · 82 cars in stock",
+    "featuredCars": "Featured cars",
+    "featuredSubtitle": "Hand-picked imports updated daily",
+    "seeAll": "See all",
+    "browseCategory": "Browse by category",
+    "aiRecommendations": "AI recommendations",
+    "aiSubtitle": "Smart picks based on your budget and preferences"
+  },
+  "tracking": {
+    "title": "Your orders",
+    "subtitle": "Live tracking from China to your doorstep",
+    "totalPrice": "Total Price",
+    "steps": {
+      "ordered": "Ordered",
+      "paid": "Paid / Reserved",
+      "warehouse": "China warehouse",
+      "shipped": "Shipped",
+      "customs": "Customs clearance",
+      "arrived": "Arrived in Algeria"
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "subtitle": "Updates on your reservations, shipments, and prices"
+  },
+  "profile": {
+    "tabs": {
+      "saved": "Saved",
+      "reservations": "Reservations",
+      "history": "History",
+      "preferences": "Preferences"
+    },
+    "stats": {
+      "saved": "Saved",
+      "reservations": "Reservations",
+      "delivered": "Delivered"
+    },
+    "savedCars": "Saved cars",
+    "preferencesTitle": "Preferences",
+    "preferencesSubtitle": "Used by AI to personalize recommendations",
+    "budgetRange": "Budget range",
+    "preferredBrands": "Preferred brands",
+    "fuelPreference": "Fuel preference",
+    "bodyType": "Body type"
+  },
+  "aiChat": {
+    "welcome": "Hi Mounir 👋 I'm your AI assistant. I can recommend cars for your budget, explain import fees, and track your orders. What are you looking for?",
+    "subtitle": "Always available · Replies instantly",
+    "placeholder": "Ask anything about cars, prices, shipping…",
+    "suggestions": {
+      "suvs": "Best SUVs under 500M",
+      "reliable": "Most reliable cars this month",
+      "track": "Track my BMW order",
+      "customs": "How do customs fees work?"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { statusMeta, type CarStatus } from "@/lib/cars";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 const colorMap: Record<string, string> = {
   success: "bg-success/15 text-success border-success/30",
@@ -8,6 +9,7 @@ const colorMap: Record<string, string> = {
 };
 
 export function StatusBadge({ status, className }: { status: CarStatus; className?: string }) {
+  const { t } = useTranslation();
   const meta = statusMeta[status];
   return (
     <span
@@ -18,7 +20,7 @@ export function StatusBadge({ status, className }: { status: CarStatus; classNam
       )}
     >
       <span className="h-1.5 w-1.5 rounded-full bg-current" />
-      {meta.label}
+      {t(`common.carStatus.${status}`)}
     </span>
   );
 }

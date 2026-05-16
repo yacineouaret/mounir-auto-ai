@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Check, Clock, Package, Plane, Ship, Truck, Warehouse } from "lucide-react";
 import { cars } from "@/lib/cars";
 import { StatusBadge } from "@/components/StatusBadge";
+import { useTranslation } from "react-i18next";
 
 export const Route = createFileRoute("/orders")({
   head: () => ({ meta: [{ title: "Order tracking — Mounir Cars" }] }),
@@ -9,12 +10,12 @@ export const Route = createFileRoute("/orders")({
 });
 
 const steps = [
-  { key: "ordered", label: "Ordered", icon: Package },
-  { key: "paid", label: "Paid / Reserved", icon: Check },
-  { key: "warehouse", label: "China warehouse", icon: Warehouse },
-  { key: "shipped", label: "Shipped", icon: Ship },
-  { key: "customs", label: "Customs clearance", icon: Plane },
-  { key: "arrived", label: "Arrived in Algeria", icon: Truck },
+  { key: "ordered", labelKey: "tracking.steps.ordered", icon: Package },
+  { key: "paid", labelKey: "tracking.steps.paid", icon: Check },
+  { key: "warehouse", labelKey: "tracking.steps.warehouse", icon: Warehouse },
+  { key: "shipped", labelKey: "tracking.steps.shipped", icon: Ship },
+  { key: "customs", labelKey: "tracking.steps.customs", icon: Plane },
+  { key: "arrived", labelKey: "tracking.steps.arrived", icon: Truck },
 ];
 
 const orders = [
@@ -24,11 +25,13 @@ const orders = [
 ];
 
 function OrdersPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold">Your orders</h1>
-        <p className="text-sm text-muted-foreground">Live tracking from China to your doorstep</p>
+        <h1 className="text-2xl font-bold">{t("tracking.title")}</h1>
+        <p className="text-sm text-muted-foreground">{t("tracking.subtitle")}</p>
       </div>
 
       <div className="space-y-6">
@@ -42,12 +45,12 @@ function OrdersPage() {
                 <div className="flex flex-wrap items-center gap-2 pt-1">
                   <StatusBadge status={car.status} />
                   <div className="inline-flex items-center gap-1.5 rounded-lg border border-primary/20 bg-primary/5 px-2 py-1 text-xs text-primary-glow">
-                    <Clock className="h-3.5 w-3.5" /> ETA: {eta}
+                    <Clock className="h-3.5 w-3.5" /> {t("common.eta")}: {eta}
                   </div>
                 </div>
               </div>
               <div className="flex flex-col items-start gap-1 sm:items-end">
-                <p className="text-sm text-muted-foreground">Total Price</p>
+                <p className="text-sm text-muted-foreground">{t("tracking.totalPrice")}</p>
                 <p className="text-xl font-bold text-gold">{car.price + car.shipping + car.customs}M DA</p>
               </div>
             </div>
@@ -74,7 +77,7 @@ function OrdersPage() {
                         <div className={`h-0.5 flex-1 ${i === steps.length - 1 ? "opacity-0" : i < step ? "bg-primary" : "bg-border"}`} />
                       </div>
                       <p className={`mt-3 text-[11px] font-medium uppercase tracking-wider ${done ? "text-foreground" : "text-muted-foreground"}`}>
-                        {s.label}
+                        {t(s.labelKey)}
                       </p>
                     </li>
                   );
