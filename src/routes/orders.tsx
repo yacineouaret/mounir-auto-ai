@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, Package, Plane, Ship, Truck, Warehouse } from "lucide-react";
+import { Check, Clock, Package, Plane, Ship, Truck, Warehouse } from "lucide-react";
 import { cars } from "@/lib/cars";
 import { StatusBadge } from "@/components/StatusBadge";
 
@@ -18,9 +18,9 @@ const steps = [
 ];
 
 const orders = [
-  { car: cars[0], step: 5 },
-  { car: cars[1], step: 3 },
-  { car: cars[3], step: 4 },
+  { car: cars[0], step: 5, eta: "Delivered" },
+  { car: cars[1], step: 3, eta: "Dec 28, 2025" },
+  { car: cars[3], step: 4, eta: "Jan 12, 2026" },
 ];
 
 function OrdersPage() {
@@ -31,16 +31,25 @@ function OrdersPage() {
         <p className="text-sm text-muted-foreground">Live tracking from China to your doorstep</p>
       </div>
 
-      <div className="space-y-5">
-        {orders.map(({ car, step }) => (
+      <div className="space-y-6">
+        {orders.map(({ car, step, eta }) => (
           <div key={car.id} className="overflow-hidden rounded-3xl border border-border bg-card glow-soft">
-            <div className="flex items-center gap-4 border-b border-border p-4">
-              <img src={car.image} alt="" className="h-16 w-24 rounded-xl object-cover" />
-              <div className="flex-1">
+            <div className="flex flex-col gap-4 border-b border-border p-4 sm:flex-row sm:items-center">
+              <img src={car.image} alt="" className="h-20 w-32 rounded-xl object-cover" />
+              <div className="flex-1 space-y-1">
                 <p className="text-xs uppercase tracking-wider text-muted-foreground">{car.brand} · {car.year}</p>
-                <p className="text-base font-semibold">{car.model}</p>
+                <p className="text-lg font-semibold">{car.model}</p>
+                <div className="flex flex-wrap items-center gap-2 pt-1">
+                  <StatusBadge status={car.status} />
+                  <div className="inline-flex items-center gap-1.5 rounded-lg border border-primary/20 bg-primary/5 px-2 py-1 text-xs text-primary-glow">
+                    <Clock className="h-3.5 w-3.5" /> ETA: {eta}
+                  </div>
+                </div>
               </div>
-              <StatusBadge status={car.status} />
+              <div className="flex flex-col items-start gap-1 sm:items-end">
+                <p className="text-sm text-muted-foreground">Total Price</p>
+                <p className="text-xl font-bold text-gold">{car.price + car.shipping + car.customs}M DA</p>
+              </div>
             </div>
 
             <div className="overflow-x-auto p-6 hide-scrollbar">
@@ -54,17 +63,17 @@ function OrdersPage() {
                       <div className="relative flex w-full items-center">
                         <div className={`h-0.5 flex-1 ${i === 0 ? "opacity-0" : done ? "bg-primary" : "bg-border"}`} />
                         <div
-                          className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-2xl border-2 transition-all ${
+                          className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl border-2 transition-all ${
                             done
                               ? "border-primary bg-primary text-primary-foreground"
                               : "border-border bg-secondary text-muted-foreground"
-                          } ${current ? "glow-primary" : ""}`}
+                          } ${current ? "glow-primary scale-110" : ""}`}
                         >
-                          <Icon className="h-4 w-4" />
+                          <Icon className="h-5 w-5" />
                         </div>
                         <div className={`h-0.5 flex-1 ${i === steps.length - 1 ? "opacity-0" : i < step ? "bg-primary" : "bg-border"}`} />
                       </div>
-                      <p className={`mt-2 text-[11px] font-medium ${done ? "text-foreground" : "text-muted-foreground"}`}>
+                      <p className={`mt-3 text-[11px] font-medium uppercase tracking-wider ${done ? "text-foreground" : "text-muted-foreground"}`}>
                         {s.label}
                       </p>
                     </li>
