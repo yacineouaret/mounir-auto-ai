@@ -17,7 +17,8 @@ import {
   X,
 } from "lucide-react";
 
-const nav = [
+type NavItem = { to: string; label: string; icon: typeof LayoutDashboard; exact?: boolean };
+const nav: NavItem[] = [
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
   { to: "/admin/inventory", label: "Inventory", icon: Boxes },
   { to: "/admin/shipments", label: "Shipments", icon: Ship },
@@ -28,7 +29,7 @@ const nav = [
   { to: "/admin/notifications", label: "Notifications", icon: Bell },
   { to: "/admin/documents", label: "Documents", icon: FileText },
   { to: "/admin/settings", label: "Settings", icon: Settings },
-] as const;
+];
 
 export function AdminShell() {
   const path = useRouterState({ select: (s) => s.location.pathname });
