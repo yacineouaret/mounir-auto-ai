@@ -14,7 +14,17 @@ import { Route as OrdersRouteImport } from './routes/orders'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CarsIndexRouteImport } from './routes/cars.index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as CarsCarIdRouteImport } from './routes/cars.$carId'
+import { Route as AdminShipmentsRouteImport } from './routes/admin.shipments'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
+import { Route as AdminInventoryRouteImport } from './routes/admin.inventory'
+import { Route as AdminDocumentsRouteImport } from './routes/admin.documents'
+import { Route as AdminConversationsRouteImport } from './routes/admin.conversations'
+import { Route as AdminClientsRouteImport } from './routes/admin.clients'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
+import { Route as AdminAiRouteImport } from './routes/admin.ai'
 
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
@@ -41,9 +51,59 @@ const CarsIndexRoute = CarsIndexRouteImport.update({
   path: '/cars/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CarsCarIdRoute = CarsCarIdRouteImport.update({
   id: '/cars/$carId',
   path: '/cars/$carId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminShipmentsRoute = AdminShipmentsRouteImport.update({
+  id: '/admin/shipments',
+  path: '/admin/shipments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/admin/settings',
+  path: '/admin/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
+  id: '/admin/notifications',
+  path: '/admin/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminInventoryRoute = AdminInventoryRouteImport.update({
+  id: '/admin/inventory',
+  path: '/admin/inventory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminDocumentsRoute = AdminDocumentsRouteImport.update({
+  id: '/admin/documents',
+  path: '/admin/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminConversationsRoute = AdminConversationsRouteImport.update({
+  id: '/admin/conversations',
+  path: '/admin/conversations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminClientsRoute = AdminClientsRouteImport.update({
+  id: '/admin/clients',
+  path: '/admin/clients',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/admin/analytics',
+  path: '/admin/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAiRoute = AdminAiRouteImport.update({
+  id: '/admin/ai',
+  path: '/admin/ai',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -52,7 +112,17 @@ export interface FileRoutesByFullPath {
   '/notifications': typeof NotificationsRoute
   '/orders': typeof OrdersRoute
   '/profile': typeof ProfileRoute
+  '/admin/ai': typeof AdminAiRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/clients': typeof AdminClientsRoute
+  '/admin/conversations': typeof AdminConversationsRoute
+  '/admin/documents': typeof AdminDocumentsRoute
+  '/admin/inventory': typeof AdminInventoryRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/shipments': typeof AdminShipmentsRoute
   '/cars/$carId': typeof CarsCarIdRoute
+  '/admin/': typeof AdminIndexRoute
   '/cars/': typeof CarsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -60,7 +130,17 @@ export interface FileRoutesByTo {
   '/notifications': typeof NotificationsRoute
   '/orders': typeof OrdersRoute
   '/profile': typeof ProfileRoute
+  '/admin/ai': typeof AdminAiRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/clients': typeof AdminClientsRoute
+  '/admin/conversations': typeof AdminConversationsRoute
+  '/admin/documents': typeof AdminDocumentsRoute
+  '/admin/inventory': typeof AdminInventoryRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/shipments': typeof AdminShipmentsRoute
   '/cars/$carId': typeof CarsCarIdRoute
+  '/admin': typeof AdminIndexRoute
   '/cars': typeof CarsIndexRoute
 }
 export interface FileRoutesById {
@@ -69,7 +149,17 @@ export interface FileRoutesById {
   '/notifications': typeof NotificationsRoute
   '/orders': typeof OrdersRoute
   '/profile': typeof ProfileRoute
+  '/admin/ai': typeof AdminAiRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/clients': typeof AdminClientsRoute
+  '/admin/conversations': typeof AdminConversationsRoute
+  '/admin/documents': typeof AdminDocumentsRoute
+  '/admin/inventory': typeof AdminInventoryRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/shipments': typeof AdminShipmentsRoute
   '/cars/$carId': typeof CarsCarIdRoute
+  '/admin/': typeof AdminIndexRoute
   '/cars/': typeof CarsIndexRoute
 }
 export interface FileRouteTypes {
@@ -79,17 +169,53 @@ export interface FileRouteTypes {
     | '/notifications'
     | '/orders'
     | '/profile'
+    | '/admin/ai'
+    | '/admin/analytics'
+    | '/admin/clients'
+    | '/admin/conversations'
+    | '/admin/documents'
+    | '/admin/inventory'
+    | '/admin/notifications'
+    | '/admin/settings'
+    | '/admin/shipments'
     | '/cars/$carId'
+    | '/admin/'
     | '/cars/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/notifications' | '/orders' | '/profile' | '/cars/$carId' | '/cars'
+  to:
+    | '/'
+    | '/notifications'
+    | '/orders'
+    | '/profile'
+    | '/admin/ai'
+    | '/admin/analytics'
+    | '/admin/clients'
+    | '/admin/conversations'
+    | '/admin/documents'
+    | '/admin/inventory'
+    | '/admin/notifications'
+    | '/admin/settings'
+    | '/admin/shipments'
+    | '/cars/$carId'
+    | '/admin'
+    | '/cars'
   id:
     | '__root__'
     | '/'
     | '/notifications'
     | '/orders'
     | '/profile'
+    | '/admin/ai'
+    | '/admin/analytics'
+    | '/admin/clients'
+    | '/admin/conversations'
+    | '/admin/documents'
+    | '/admin/inventory'
+    | '/admin/notifications'
+    | '/admin/settings'
+    | '/admin/shipments'
     | '/cars/$carId'
+    | '/admin/'
     | '/cars/'
   fileRoutesById: FileRoutesById
 }
@@ -98,7 +224,17 @@ export interface RootRouteChildren {
   NotificationsRoute: typeof NotificationsRoute
   OrdersRoute: typeof OrdersRoute
   ProfileRoute: typeof ProfileRoute
+  AdminAiRoute: typeof AdminAiRoute
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminClientsRoute: typeof AdminClientsRoute
+  AdminConversationsRoute: typeof AdminConversationsRoute
+  AdminDocumentsRoute: typeof AdminDocumentsRoute
+  AdminInventoryRoute: typeof AdminInventoryRoute
+  AdminNotificationsRoute: typeof AdminNotificationsRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminShipmentsRoute: typeof AdminShipmentsRoute
   CarsCarIdRoute: typeof CarsCarIdRoute
+  AdminIndexRoute: typeof AdminIndexRoute
   CarsIndexRoute: typeof CarsIndexRoute
 }
 
@@ -139,11 +275,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CarsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cars/$carId': {
       id: '/cars/$carId'
       path: '/cars/$carId'
       fullPath: '/cars/$carId'
       preLoaderRoute: typeof CarsCarIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/shipments': {
+      id: '/admin/shipments'
+      path: '/admin/shipments'
+      fullPath: '/admin/shipments'
+      preLoaderRoute: typeof AdminShipmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/admin/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/notifications': {
+      id: '/admin/notifications'
+      path: '/admin/notifications'
+      fullPath: '/admin/notifications'
+      preLoaderRoute: typeof AdminNotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/inventory': {
+      id: '/admin/inventory'
+      path: '/admin/inventory'
+      fullPath: '/admin/inventory'
+      preLoaderRoute: typeof AdminInventoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/documents': {
+      id: '/admin/documents'
+      path: '/admin/documents'
+      fullPath: '/admin/documents'
+      preLoaderRoute: typeof AdminDocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/conversations': {
+      id: '/admin/conversations'
+      path: '/admin/conversations'
+      fullPath: '/admin/conversations'
+      preLoaderRoute: typeof AdminConversationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/clients': {
+      id: '/admin/clients'
+      path: '/admin/clients'
+      fullPath: '/admin/clients'
+      preLoaderRoute: typeof AdminClientsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/admin/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai': {
+      id: '/admin/ai'
+      path: '/admin/ai'
+      fullPath: '/admin/ai'
+      preLoaderRoute: typeof AdminAiRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -154,9 +360,29 @@ const rootRouteChildren: RootRouteChildren = {
   NotificationsRoute: NotificationsRoute,
   OrdersRoute: OrdersRoute,
   ProfileRoute: ProfileRoute,
+  AdminAiRoute: AdminAiRoute,
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminClientsRoute: AdminClientsRoute,
+  AdminConversationsRoute: AdminConversationsRoute,
+  AdminDocumentsRoute: AdminDocumentsRoute,
+  AdminInventoryRoute: AdminInventoryRoute,
+  AdminNotificationsRoute: AdminNotificationsRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminShipmentsRoute: AdminShipmentsRoute,
   CarsCarIdRoute: CarsCarIdRoute,
+  AdminIndexRoute: AdminIndexRoute,
   CarsIndexRoute: CarsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
